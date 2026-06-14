@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="editor-panel" aria-label="CV editor">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Resume Builder</p>
+            <h1>Professional CV Builder</h1>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="saveDraft" type="button" title="Save draft" aria-label="Save draft">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2Z"></path>
+                <path d="M17 21v-8H7v8"></path>
+                <path d="M7 3v5h8"></path>
+              </svg>
+            </button>
+            <button class="icon-button" id="resetDraft" type="button" title="Reset sample" aria-label="Reset sample">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+                <path d="M3 3v6h6"></path>
+              </svg>
+            </button>
+            <button class="primary-button" id="printCv" type="button">Print PDF</button>
+          </div>
+        </header>
+
+        <div class="tabs" role="tablist" aria-label="Editor sections">
+          <button class="tab active" data-tab="profile" type="button">Profile</button>
+          <button class="tab" data-tab="experience" type="button">Experience</button>
+          <button class="tab" data-tab="projects" type="button">Projects</button>
+          <button class="tab" data-tab="skills" type="button">Skills</button>
+        </div>
+
+        <form class="editor-form" id="cvForm">
+          <section class="tab-panel active" data-panel="profile">
+            <label>
+              Name
+              <input name="name" autocomplete="name" />
+            </label>
+            <label>
+              Target role
+              <input name="role" />
+            </label>
+            <label>
+              Professional summary
+              <textarea name="summary" rows="6"></textarea>
+            </label>
+            <div class="grid-two">
+              <label>
+                Email
+                <input name="email" autocomplete="email" />
+              </label>
+              <label>
+                Phone
+                <input name="phone" autocomplete="tel" />
+              </label>
+              <label>
+                Location
+                <input name="location" autocomplete="address-level2" />
+              </label>
+              <label>
+                Portfolio
+                <input name="portfolio" />
+              </label>
+              <label>
+                LinkedIn
+                <input name="linkedin" />
+              </label>
+              <label>
+                GitHub
+                <input name="github" />
+              </label>
+            </div>
+          </section>
+
+          <section class="tab-panel" data-panel="experience">
+            <div class="section-editor-heading">
+              <div>
+                <h2>Work experience</h2>
+                <p class="field-note">Add each role as a separate block.</p>
+              </div>
+              <button class="secondary-button" data-add="experience" type="button">Add role</button>
+            </div>
+            <div class="block-list" data-list="experience"></div>
+          </section>
+
+          <section class="tab-panel" data-panel="projects">
+            <div class="section-editor-heading">
+              <div>
+                <h2>Projects</h2>
+                <p class="field-note">Add each app or product as its own showcase item.</p>
+              </div>
+              <button class="secondary-button" data-add="projects" type="button">Add project</button>
+            </div>
+            <div class="block-list" data-list="projects"></div>
+          </section>
+
+          <section class="tab-panel" data-panel="skills">
+            <div class="section-editor-heading">
+              <div>
+                <h2>Skills</h2>
+                <p class="field-note">Keep skills short and recruiter-friendly.</p>
+              </div>
+              <button class="secondary-button" data-add="skills" type="button">Add skill</button>
+            </div>
+            <div class="block-list compact-block-list" data-list="skills"></div>
+
+            <div class="section-editor-heading">
+              <div>
+                <h2>Education</h2>
+                <p class="field-note">Add degrees and certificates separately.</p>
+              </div>
+              <button class="secondary-button" data-add="education" type="button">Add education</button>
+            </div>
+            <div class="block-list" data-list="education"></div>
+
+            <div class="section-editor-heading">
+              <div>
+                <h2>Achievements</h2>
+                <p class="field-note">Add awards, certificates, and recognitions.</p>
+              </div>
+              <button class="secondary-button" data-add="achievements" type="button">Add achievement</button>
+            </div>
+            <div class="block-list" data-list="achievements"></div>
+
+            <div class="section-editor-heading">
+              <div>
+                <h2>Languages and interests</h2>
+                <p class="field-note">Add one item per block.</p>
+              </div>
+              <button class="secondary-button" data-add="extra" type="button">Add item</button>
+            </div>
+            <div class="block-list compact-block-list" data-list="extra"></div>
+          </section>
+        </form>
+      </section>
+
+      <section class="preview-panel" aria-label="CV preview">
+        <article class="resume-page" id="resumePreview" aria-live="polite"></article>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
